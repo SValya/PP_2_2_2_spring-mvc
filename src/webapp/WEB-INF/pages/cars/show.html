@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        table {
+            width: 20%; /* Ширина таблицы */
+            background: black; /* Цвет фона таблицы */
+            color: black; /* Цвет текста */
+            border-spacing: 1px; /* Расстояние между ячейками */
+        }
+        td, th {
+            background: white; /* Цвет фона ячеек */
+            padding: 3px; /* Поля вокруг текста */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Cars</h1>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Series</th>
+        </tr>
+        <tr th:each = "car : ${cars}">
+            <td th:utext = "${car.getId()}"></td>
+            <td th:utext = "${car.getModel()}"></td>
+            <td th:utext = "${car.getSeries()}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
