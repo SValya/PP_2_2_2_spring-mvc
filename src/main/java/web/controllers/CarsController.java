@@ -12,16 +12,16 @@ import web.service.CarService;
 @RequestMapping("/cars")
 public class CarsController {
 
-    private final CarService carServiceImpl;
+    private final CarService carService;
 
     @Autowired
-    public CarsController(CarService carServiceImpl) {
-        this.carServiceImpl = carServiceImpl;
+    public CarsController(CarService carService) {
+        this.carService = carService;
     }
 
     @GetMapping()
-    public String show(@RequestParam(value = "count", required = false, defaultValue = "0") int id, Model model) {
-        model.addAttribute("cars", carServiceImpl.show(id));
-        return "cars/show";
+    public String getCars(@RequestParam(value = "count", required = false, defaultValue = "0") int id, Model model) {
+        model.addAttribute("cars", carService.getCars(id));
+        return "cars/cars";
     }
 }
